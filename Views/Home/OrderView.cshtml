@@ -1,12 +1,10 @@
-﻿﻿@{
-    ViewData["Title"] = "Contact Us";
+﻿
+@{
+    ViewData["Title"] = "Orders";
 }
-<h1>@ViewData["Title"]</h1>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
     <meta charset="utf-8" />
     <meta naem="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Home Page</title>
@@ -32,20 +30,9 @@
             text-align: center;
         }
 
-        h2 {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
+        p {
             text-align: center;
         }
-
-        h3 {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
 
         nav {
             background-color: #555;
@@ -63,7 +50,7 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff:
+            background-color: #fff;
         }
 
         .book {
@@ -83,31 +70,38 @@
             }
 
     </style>
-</head>
-<body>
+    </head>
+    <body>
+
+    <h1>Order Details</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>UserId</th>
+                <th>Products</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.UserId</td>
+                    <td>
+                        <ul>
+                            @foreach (var item in order.OrderItems)
+                            {
+                                <li>@item.Product.Name - @item.Quantity</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+          
+      
 
 
-
-
-
-    <h3> Contact Information:</h3>
-    <p>
-        Email: contact92khumaloCrafts@gmail.com<br />
-        Phone Number: 021 635 7884 / 061 998 0125<br />
-        Physical Address: 54 Jackson Crescent<br />
-    </p>
-    <h3> Social Media Links:</h3>
-    <p>
-        Instagram:Khumalo_Crafts<br />
-        Facebook:KhumaloCrafts_2<br />
-        Twitter:KhumaloCrafts_
-    </p>
-    <h3> Business Hours:</h3>
-    <p>
-        Monday-Friday : 08:00-17:00<br />
-        Saturday:08:00-16:00<br />
-        Sunday: 08:00-13:00
-    </p>
-
-</body>
+ </body>
 </html>
+

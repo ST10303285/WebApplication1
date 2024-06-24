@@ -1,97 +1,112 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Home Page";
 }
 
 <!DOCTYPE html>
-<html lang= "en">
-    <head>
-        <meta charset="utf-8" />
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <title>Home Page</title>
-    <style> 
-        body{
-            font-family:Ariel;
+    <style>
+        body {
+            font-family: Ariel;
             margin: 0;
-            padding:0;
+            padding: 0;
             background-color: #f4f4f4;
-
         }
-        header{
-            background-color: #333;
-            color: #fff;
-            padding:20px;
-            text-align: center;
 
-        }
-        h2{
+        header {
             background-color: #333;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
-        nav{
-            background-color:#555;
+
+        h2 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #555;
             padding: 10px;
             text-align: center;
         }
-        p{
+
+        p {
             text-align: center;
         }
-        nav a{
+
+        nav a {
             color: #fff;
             text-decoration: none;
             margin: 0 10px;
         }
-        .container{
+
+        .container {
             max-width: 800px;
             margin: 20px auto;
-            padding: 20px; 
+            padding: 20px;
             background-color: #fff;
         }
-        .craftwork{
-            display:flex;
+
+        .craftwork {
+            display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
             margin-top: 20px;
+        }
 
-        }
-        .craftwork img{
-            width: 200px;
-            height: 300px;
-            margin: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0,0,0,2);
-        }
+            .craftwork img {
+                width: 200px;
+                height: 300px;
+                margin: 10px;
+                border-radius: 5px;
+                box-shadow: 0 0 5px rgba(0,0,0,2);
+            }
 
     </style>
-    </head>
-    <body> 
-        <header>
-            <h1>Welcome to KhumaloCrafts Emporium</h1>
-           
-        </header>
+</head>
+<body>
+    <header>
+        <h1>Welcome to KhumaloCrafts Emporium</h1>
 
-    <h2>Discover Beautiful Handmade crafts</h2>
-    <h2>Crafted with a blend of tradition and innovation, each handmade piece is a testament to the artists creativity!</h2>
+    </header>
 
-    <div class= "craft-item">
-        <img width="55" img src="~/images/craftwork1.jpg" alt=" craftwork" class="center">
-        <p>       </p>
-      </div>
+    <h2>Products</h2>
 
-    <div class="craft-item">
-        <img width="55" img src="~/images/craftwork2.jpg" alt=" craftwork" class="center">
-        <p>       </p>
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
 
-    <div class="craft-item">
-        <img width="55" img src="~/images/craftwork3.jpg" alt=" craftwork" class="center">
-        <p>       </p>
-    </div>
-        
+            @if (Model != null)
+            {
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.Category</td>
+                    <td>@product.Availability</td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
 
-    </body>
+
+</body>
 </html>
 
